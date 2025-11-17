@@ -37,6 +37,7 @@ public class Anagram {
 				if(str1.charAt(i)==str2.charAt(j)){
 					str2 = str2.substring(0, j) + str2.substring(j + 1);
 					ch=true;
+					break;
 				}
 			}
 			if(ch==false){ 
@@ -72,7 +73,7 @@ public class Anagram {
 		while(str.length()>0){
 			int c = (int)(str.length()*Math.random());
 			st+=str.charAt(c);
-			for(int j =0;j<=str.length()-1;j++){
+			for(int j =0;j<str.length();j++){
 				if(j!=c ){t+=str.charAt(j);}
 			}
 			str=t;

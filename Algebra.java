@@ -6,8 +6,8 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-	    System.out.println(plus(2,3));   // 2 + 3
-	    System.out.println(minus(7,2));  // 7 - 2
+	    System.out.println(plus(-2,-3));   // 2 + 3
+	    System.out.println(minus(7,-2));  // 7 - 2
    		System.out.println(minus(2,7));  // 2 - 7
  		System.out.println(times(3,4));  // 3 * 4
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
@@ -26,8 +26,17 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
-		for(int i=0;i<x2;i++){
-			x1++;
+		int t =x2;
+		if(x2<0){
+			t =-x2;
+		}
+		for(int i=0;i<t;i++){
+			if(x2<0){
+				x1--;
+			}else{
+				x1++;
+			}
+			
 		}
 		return x1;
 	}
@@ -35,8 +44,16 @@ public class Algebra {
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
-		for(int i=0;i<x2;i++){
+		int t =x2;
+		if(x2<0){
+			t =-x2;
+		}
+		for(int i=0;i<t;i++){
+			if(x2<0){
+				x1++;
+			}else{
 			x1--;
+			}
 		}
 		return x1;
 	}
@@ -44,9 +61,16 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
+		int t =x2;
+		if(x2<0){
+			t =-x2;
+		}
 		int tem=0;
-		for(int i=0;i<x2;i++){
+		for(int i=0;i<t;i++){
 			tem=plus(tem,x1);
+		}
+		if(x2<0){
+			tem =-tem;
 		}
 		return tem;
 	}
@@ -64,10 +88,24 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
+		int ch =0;
+		int t =x1;
+		if(x1<0){
+			t =-x1;
+			ch++;
+		}
+		int t2 =x2;
+		if(x2<0){
+			t2 =-x2;
+			ch++;
+		}
 		int tem=0;
-		while(x1>=x2){
-			x1=minus(x1,x2);
+		while(t>=t2){
+			t=minus(t,t2);
 			tem++;
+		}
+		if(ch==1){
+			tem=-tem;
 		}
 		return tem;
 	}
